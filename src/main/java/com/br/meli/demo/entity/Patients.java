@@ -1,4 +1,4 @@
-package entity;
+package com.br.meli.demo.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
