@@ -5,10 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
@@ -22,5 +19,11 @@ public class Turns {
             strategy = GenerationType.IDENTITY
     )
     private Long id_turn;
-    private LocalDate
+    private LocalDate day;
+    @ManyToOne
+    private Diarys diarys;
+    @ManyToOne
+    private TurnStatus turnstatus;
+    @ManyToOne
+    private Patients patients;
 }

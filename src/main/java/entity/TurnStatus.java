@@ -21,10 +21,5 @@ public class TurnStatus {
     private Long id_turn_status;
     private String name;
     private String description;
-    @ManyToOne
-    private Diarys diarys;
-    @ManyToOne
-    private TurnStatus turnstatus;
-    @ManyToOne
-    private Patients patients;
+
 }
