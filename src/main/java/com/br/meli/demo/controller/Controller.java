@@ -2,9 +2,11 @@ package com.br.meli.demo.controller;
 import com.br.meli.demo.entity.Dentists;
 import com.br.meli.demo.entity.Diarys;
 import com.br.meli.demo.entity.Patients;
+import com.br.meli.demo.entity.TurnStatus;
 import com.br.meli.demo.service.DentistService;
 import com.br.meli.demo.service.DiarysService;
 import com.br.meli.demo.service.PatientsService;
+import com.br.meli.demo.service.TurnStatusService;
 import org.apache.tomcat.util.http.parser.HttpParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,6 +27,9 @@ public class Controller {
 
     @Autowired
     private DiarysService diarysService;
+
+    @Autowired
+    private TurnStatusService turnStatusService;
 
     // REQUESTS FOR DENTISTS
     @GetMapping("/dentists")
@@ -76,6 +81,7 @@ public class Controller {
 
     @PostMapping("/diarys")
     public  ResponseEntity<Diarys> save(@RequestBody Diarys diarys) {
+        System.out.println(diarys.getDentists());
         Dentists dentists = this.dentistService.getDentistById(diarys.getDentists().getId_dentist());
         if ( dentists.getId_dentist() != null ) {
             this.diarysService.save(diarys);
@@ -83,4 +89,12 @@ public class Controller {
         }
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new Diarys());
     }
+
+    // REQUESTS FOR TURN_STATUS
+    @PostMapping("/turn_status")
+    public ResponseEntity<TurnStatus> save(@RequestBody TurnStatus turnStatus) {
+        this.turnStatusService.save(turnStatus);
+        return ResponseEntity.status(HttpStatus.CREATED).body(turnStatus);
+    }
+
 }
