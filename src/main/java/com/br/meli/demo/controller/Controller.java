@@ -38,6 +38,26 @@ public class Controller {
         return ResponseEntity.status(HttpStatus.CREATED).body(dentists);
     }
 
+    @DeleteMapping("/dentists/{id_dentist}")
+    public ResponseEntity<String> delete(@PathVariable Long id_dentist ) {
+        Dentists dentist = this.dentistService.getDentistById(id_dentist);
+        this.dentistService.delete(dentist);
+        return ResponseEntity.status(HttpStatus.OK).body("Registro deletado com sucesso");
+    }
+
+    // método para refatorar: atualizacao de campo especifico
+    @PutMapping("/dentists")
+    public ResponseEntity<Dentists> update(@RequestBody Dentists dentist) {
+        Dentists dentista = this.dentistService.put(dentist);
+        return ResponseEntity.status(HttpStatus.OK).body(dentista);
+    }
+
+    @GetMapping("/dentists/{id_dentist}")
+    public ResponseEntity<Dentists> getOneDentist(@PathVariable Long id_dentist) {
+        Dentists dentistProcurado = this.dentistService.getDentistById(id_dentist);
+        return ResponseEntity.status(HttpStatus.OK).body(dentistProcurado);
+    }
+
     // REQUESTS FOR PATIENTS
     @GetMapping("/patients")
     public List<Patients> getAllPatients(){
@@ -50,6 +70,7 @@ public class Controller {
         return ResponseEntity.status(HttpStatus.CREATED).body(patient);
     }
 
+    // REQUESTS FOR DIARYS
     @GetMapping("/diarys")
     public List<Diarys> getAllDiarys() {return this.diarysService.getAllDairys();}
 

@@ -7,7 +7,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import net.bytebuddy.asm.Advice;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 import java.util.Optional;
@@ -32,6 +35,15 @@ public class DentistService {
     public Dentists getDentistById(Long id){
         Optional<Dentists>  dentists =  this.dentistRepository.findById(id);
         return  dentists.orElse(new Dentists());
+    }
+
+    public void delete(Dentists dentist) {
+        this.dentistRepository.delete(dentist);
+    }
+
+    // precisa refatorar para alteracao com campos especificos
+    public Dentists put(Dentists dentist) {
+       return this.dentistRepository.saveAndFlush(dentist);
     }
 
 }
