@@ -1,0 +1,179 @@
+{
+	"info": {
+		"_postman_id": "76aae273-e8f4-43f9-955d-745daf239a77",
+		"name": "pratica_dentista",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Cadastrar Turn_Status",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "content",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Doutor 07\",\n    \"last_name\": \"da Silva\",\n    \"address\": \"Avenida Brasil\",\n    \"dni\":\"123-456\",\n    \"birth_date\": \"1980-11-25\",\n    \"phone\": 112223335,\n    \"email\": \"email_dr1@meli.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/dentists",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dentists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar Dentista",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "content",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Doutor 07\",\n    \"last_name\": \"da Silva\",\n    \"address\": \"Avenida Brasil\",\n    \"dni\":\"123-456\",\n    \"birth_date\": \"1980-11-25\",\n    \"phone\": 112223335,\n    \"email\": \"email_dr1@meli.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/dentists",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dentists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar Paciente",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "content",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Doutor 07\",\n    \"last_name\": \"da Silva\",\n    \"address\": \"Avenida Brasil\",\n    \"dni\":\"123-456\",\n    \"birth_date\": \"1980-11-25\",\n    \"phone\": 112223335,\n    \"email\": \"email_dr1@meli.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/dentists",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dentists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deletar Dentista",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/dentists/2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dentists",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar (put) Dentista",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id_dentist\": 6,\n    \"name\": \"Doutor teste\",\n    \"last_name\": \"da Silva\",\n    \"address\": \"Avenida Brasil\",\n    \"dni\": \"123-456\",\n    \"birth_date\": \"1980-11-25\",\n    \"phone\": 112223335,\n    \"email\": \"email_dr1@meli.com\",\n    \"code_mp\": null\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/dentists",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dentists"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Procurar Dentista por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/dentists/6",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"dentists",
+						"6"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

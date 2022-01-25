@@ -16,15 +16,12 @@ import java.time.LocalTime;
 @Data
 public class Diarys {
     @Id
-    @GeneratedValue(
-            strategy = GenerationType.IDENTITY
-    )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_diary;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm:ss")
     private LocalTime start_time;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm:ss")
     private LocalTime ending_time;
     @ManyToOne
-    @JoinColumn(name = "id_dentist", referencedColumnName = "id_dentist")
-    private Dentists dentists;
+    private Dentists dentist;
 }

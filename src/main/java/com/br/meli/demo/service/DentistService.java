@@ -33,8 +33,8 @@ public class DentistService {
     }
 
     public Dentists getDentistById(Long id){
-        Optional<Dentists>  dentists =  this.dentistRepository.findById(id);
-        return  dentists.orElse(new Dentists());
+        Optional<Dentists>  dentist =  this.dentistRepository.findById(id);
+        return  dentist.orElse(new Dentists());
     }
 
     public void delete(Dentists dentist) {

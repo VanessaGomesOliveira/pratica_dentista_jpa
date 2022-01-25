@@ -7,7 +7,6 @@ import com.br.meli.demo.service.DentistService;
 import com.br.meli.demo.service.DiarysService;
 import com.br.meli.demo.service.PatientsService;
 import com.br.meli.demo.service.TurnStatusService;
-import org.apache.tomcat.util.http.parser.HttpParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -81,9 +80,9 @@ public class Controller {
 
     @PostMapping("/diarys")
     public  ResponseEntity<Diarys> save(@RequestBody Diarys diarys) {
-        System.out.println(diarys.getDentists());
-        Dentists dentists = this.dentistService.getDentistById(diarys.getDentists().getId_dentist());
-        if ( dentists.getId_dentist() != null ) {
+        System.out.println(diarys.getDentist());
+        Dentists dentist = this.dentistService.getDentistById(diarys.getDentist().getId_dentist());
+        if ( dentist.getId_dentist() != null ) {
             this.diarysService.save(diarys);
             return ResponseEntity.status(HttpStatus.CREATED).body(diarys);
         }
@@ -96,5 +95,4 @@ public class Controller {
         this.turnStatusService.save(turnStatus);
         return ResponseEntity.status(HttpStatus.CREATED).body(turnStatus);
     }
-
 }

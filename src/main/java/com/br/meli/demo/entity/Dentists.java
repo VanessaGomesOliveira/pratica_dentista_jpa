@@ -19,9 +19,7 @@ import java.time.LocalDate;
 @Data
 public class Dentists {
     @Id
-    @GeneratedValue(
-            strategy = GenerationType.IDENTITY
-    )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_dentist;
     private String name;
     private String last_name;
